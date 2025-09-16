@@ -9,23 +9,25 @@
 </head>
 <body>
     <center><h1>Register</h1></center>
-    <table border="15" align="center">
-        <tr><td><label>Firstname:</label></td></tr>
-        <tr><td><input type="text" placeholder="enter your name"></td></tr>
-        <tr><td><label>lastname:</label></td></tr>
-        <tr><td><input type="text" placeholder="enter your lastname"><br></td></tr>
-        <tr><td><label>Mobile number:</label></td></tr>
-        <tr><td><input type="text" placeholder="enter your number"></td></tr>
-        <tr><td><label>Identification number:</label></td></tr>
-        <tr><td><input type="text" placeholder="enter your id"></td></tr>
-        <tr><td><label>Email</label></td></tr>
-        <tr><td><input type="email" placeholder="enter your email"></td></tr>
-        <tr><td><label>Password:</label></td></tr>
-        <tr><td><input type="password" placeholder="enter your password"></td></tr>
-        <tr><td style="text-align: center;"><button style="background-color: rgb(214, 148, 148); color: rgb(0, 0, 0); 
-        padding: 5px 10px; border: 1px solid rgb(46, 46, 46); cursor: pointer;">Register</button></td></tr>
-        
-    </table>
+    <form name="register-form" action="signup.php" method="post">
+        <table border="15" align="center">
+            <tr><td><label>Firstname:</label></td></tr>
+            <tr><td><input type="text" name="fname" placeholder="enter your name" required></td></tr>
+            <tr><td><label>lastname:</label></td></tr>
+            <tr><td><input type="text" name="lname" placeholder="enter your lastname" required></td></tr>
+            <tr><td><label>Mobile number:</label></td></tr>
+            <tr><td><input type="text" name="mnumber" placeholder="enter your number" required></td></tr>
+            <tr><td><label>Identification number:</label></td></tr>
+            <tr><td><input type="text" name="idnumber" placeholder="enter your id" required></td></tr>
+            <tr><td><label>Email</label></td></tr>
+            <tr><td><input type="email" name="email" placeholder="enter your email" required></td></tr>
+            <tr><td><label>Password:</label></td></tr>
+            <tr><td><input type="password" name="passwd" placeholder="enter your password" required></td></tr>
+            <tr><td style="text-align: center;"><button style="background-color: rgb(214, 148, 148); color: rgb(0, 0, 0); 
+           padding: 5px 10px; border: 1px solid rgb(46, 46, 46); cursor: pointer;">Register</button></td></tr>
+
+        </table>
+    </form>
     <!--la papa, con el de abajo se hace un boton de manera clasica-->
     <!--<input type="submit" value="Register">-->    
 </body>
