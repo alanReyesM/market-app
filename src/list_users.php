@@ -23,26 +23,44 @@
            <th>Options</th> 
         </tr>
         <?php
-
+            $sql_users="
+            select u.firstname  || ' ' || u.lastname as fullname,
+            u.email,
+            u.ide_number,
+            u.mobile_number,
+                case
+                    when u.status = true then 'Active' else 'Inactive'
+                end
+            from 
+                users as u
+            ";   
+            $result = pg_query($conn_local, $sql_users);
+            if(!$result){
+                die("error:". pg_last_error());
+            }    
+            while ($row=pg_fetch_assoc($result)){
+             echo"
+                <tr>
+                    <td>".$row['fullname'] ."</td>
+                    <td>".$row['email'] ."</td>
+                    <td>".$row['ide_number'] ."</td>
+                    <td>".$row['mobile_number'] ."</td>
+                    <td>active</td>
+                    <td>
+                            <a href='#'>
+                              <img src='icons/search.png' width='30'>
+                            </a>
+                            <a href='#'>
+                                <img src='icons/update.png' width='30'>
+                            </a>
+                            <a href='#'>
+                                <img src='icons/delete.png' width='30'>
+                            </a>
+                    </td> 
+              </tr>";
+            }
         ?> 
-        <tr>
-           <td>joe doe</td>
-           <td>joe@gmail.com</td>
-           <td>1221212</td>
-           <td>78545485</td>
-           <td>active</td>
-           <td>
-            <a href="#">
-                <img src="icons/search.png" width="30">
-            </a>
-            <a href="#">
-                <img src="icons/update.png" width="30">
-            </a>
-            <a href="#">
-                <img src="icons/delete.png" width="30">
-            </a>
-           </td> 
-        </tr>   
+           
     </table>    
 </body>
 </html>
