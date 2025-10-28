@@ -8,12 +8,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Marketapp - List users</title>
+    <style>
+    .table tbody tr {
+        background-color: #f9f9f9; 
+    }
+
+    
+    .table tbody tr:hover {
+        background-color: #e3e3e3; 
+    }
+   </style>
 </head>
 <body>
-    <table border="1" align="center">
-        <tr> 
-        </tr>
+    <div class="container mt-3">
+    <table border="1" align="center" class="table"> >
+         <thead class="table-dark">
         <tr>
            <th>Fullname</th>
            <th>E-mail</th>
@@ -21,10 +33,13 @@
            <th>Phone number</th>
            <th>Status</th>
            <th>Options</th> 
-        </tr>
+        </tr> </thead >
+        <tbody>
         <?php
             $sql_users="
-            select u.firstname  || ' ' || u.lastname as fullname,
+            select 
+             u.id as user_id,
+            u.firstname  || ' ' || u.lastname as fullname,
             u.email,
             u.ide_number,
             u.mobile_number,
@@ -53,14 +68,15 @@
                             <a href='#'>
                                 <img src='icons/update.png' width='30'>
                             </a>
-                            <a href='#'>
+                            <a href='delete_user.php?userId=". $row['user_id']."'>
                                 <img src='icons/delete.png' width='30'>
                             </a>
                     </td> 
               </tr>";
             }
-        ?> 
-           
-    </table>    
+        ?>  
+        </tbody> 
+    </table>  
+    </div>  
 </body>
 </html>
