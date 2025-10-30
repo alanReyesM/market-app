@@ -1,5 +1,4 @@
 <?php
-//s
     require('../config/database.php');
 ?>
 
@@ -15,8 +14,6 @@
     .table tbody tr {
         background-color: #f9f9f9; 
     }
-
-    
     .table tbody tr:hover {
         background-color: #e3e3e3; 
     }
@@ -65,7 +62,7 @@
                             <a href='#'>
                               <img src='icons/search.png' width='30'>
                             </a>
-                            <a href='#'>
+                            <a href='edit_user_form.php?userId=". $row['user_id']."'>
                                 <img src='icons/update.png' width='30'>
                             </a>
                             <a href='delete_user.php?userId=". $row['user_id']."'>
