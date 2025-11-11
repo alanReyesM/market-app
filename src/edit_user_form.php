@@ -33,5 +33,6 @@ while($row = pg_fetch_assoc($result)){
         required/><br><br>
         <label>lastname </label><input type="text" name="lname" value="<?php echo $lname?>"
         required /><br><br>
+        <label>user photo</label><input type="file" name ="photo_user"><br><br>
         <button>Update user</button>
 </html>

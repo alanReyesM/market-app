@@ -24,7 +24,7 @@
 	  u.email,
 	  u.password
     from users u where u.email = '$e_mail' and
-    u.password = '$p_wd'
+    u.password = '$enc_pass'
     limit 1
     ";
 //step 4. execute query 

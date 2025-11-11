@@ -34,6 +34,7 @@ if(!isset($_SESSION['session_user_id'])){
            <th>ide. number</th>
            <th>Phone number</th>
            <th>Status</th>
+           <th>photo</th>
            <th>Options</th> 
         </tr> </thead >
         <tbody>
@@ -47,7 +48,8 @@ if(!isset($_SESSION['session_user_id'])){
             u.mobile_number,
                 case
                     when u.status = true then 'Active' else 'Inactive'
-                end
+                end as status,
+            u.url_photo    
             from 
                 users as u
             ";   
@@ -62,7 +64,8 @@ if(!isset($_SESSION['session_user_id'])){
                     <td>".$row['email'] ."</td>
                     <td>".$row['ide_number'] ."</td>
                     <td>".$row['mobile_number'] ."</td>
-                    <td>active</td>
+                    <td> ". $row['status']."</td>
+                    <td align='center'> <img src=". $row['url_photo']." width='30'></td>
                     <td>
                             <a href='#'>
                               <img src='icons/search.png' width='30'>
