@@ -24,7 +24,14 @@ if(!isset($_SESSION['session_user_id'])){
 <?php
 //echo "welcome to main";
 ?>
-<center><b>user:<b> <?php echo $_SESSION['session_user_fulname'];?></center>
+<table border="0" align='center'>
+ <tr>
+    <td> <b>user: </b>
+    <?php echo $_SESSION['session_user_fulname'];?></td>
+    <td><?php echo "<img src='". $_SESSION['session_user_url_photo']."' width='30'>";?></td>
+</tr>
+</table>
+
 <a href="list_users.php">list all users</a> |
 <a href="logout.php">logout</a>
 </body>

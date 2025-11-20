@@ -20,9 +20,10 @@
     $sql_check_user = "
     select 
     u.id,
-    u.firstname || '' || u.lastname as fullname,
+    u.firstname || ' ' || u.lastname as fullname,
 	  u.email,
-	  u.password
+	  u.password,
+    u.url_photo
     from users u where u.email = '$e_mail' and
     u.password = '$enc_pass'
     limit 1
@@ -33,6 +34,8 @@
     $row=pg_fetch_assoc($res_check);
     $_SESSION['session_user_id']=$row['id'];
     $_SESSION['session_user_fulname']=$row['fullname'];
+    $_SESSION['session_user_url_photo']=$row['url_photo'];
+
 
     if(pg_num_rows($res_check)>0){
       // echo "user exisrs. go to main page";

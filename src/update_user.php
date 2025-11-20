@@ -3,8 +3,7 @@
     //get database acces
     require('../config/database.php');
     //get form data
-    $user_id = $_POST['iduser
-    '];
+    $user_id = $_POST['iduser'];
     $fname = trim($_POST['fname']);
     $lname = trim($_POST['lname']);
 
